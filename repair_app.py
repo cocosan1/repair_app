@@ -118,7 +118,7 @@ if selected_item == '--品番を選択--':
 
 if not selected_item == '--品番を選択--':
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         #シリーズ名の表示
         df_selected = df_base[df_base['品番']==selected_item]
@@ -137,6 +137,16 @@ if not selected_item == '--品番を選択--':
         if jpg_name in files:
             st.image(f'img//{selected_item}.jpg', width=40) 
 
+    with col3:
+        #備考 commentの表示
+        df_comment = pd.read_excel('comment.xlsx')
+
+        if st.sidebar.button('備考を見る'):
+            st.markdown('###### 備考')
+            df_comment['品番'] = df_comment['品番'].astype(str)
+            df_comment2 = df_comment[df_comment['品番']==selected_item]
+            df_comment2 = df_comment2.set_index('品番')
+            st.table(df_comment2.T)
 
     #品番でdfの絞り込み
     df_selected = df_base[df_base['品番']==selected_item]
@@ -252,15 +262,7 @@ if not selected_item == '--品番を選択--':
     st.markdown('###### 修理料金お見積り')
     st.table(df_price)
 
-    #備考 commentの表示
-    df_comment = pd.read_excel('comment.xlsx')
-
-    if st.sidebar.button('備考を見る'):
-        st.markdown('###### 備考')
-        df_comment['品番'] = df_comment['品番'].astype(str)
-        df_comment2 = df_comment[df_comment['品番']==selected_item]
-        df_comment2 = df_comment2.set_index('品番')
-        st.table(df_comment2.T)
+    
 
     # link = '[home](http://linkpagetest.s3-website-ap-northeast-1.amazonaws.com/)'
     # st.sidebar.markdown(link, unsafe_allow_html=True)
