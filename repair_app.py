@@ -53,7 +53,7 @@ item_list2.insert(0, '--品番を選択--')
 
 # *** selectbox item***
 selected_item = st.sidebar.selectbox(
-    'item:',
+    '品番',
     item_list2,   
 )    
 
@@ -118,7 +118,7 @@ if selected_item == '--品番を選択--':
 
 if not selected_item == '--品番を選択--':
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         #シリーズ名の表示
         df_selected = df_base[df_base['品番']==selected_item]
@@ -126,11 +126,13 @@ if not selected_item == '--品番を選択--':
         # st.caption('シリーズ名')
         st.caption(series)
 
+    with col2:    
         #材種の表示
         wood_name = df_selected.iat[0, 10]
         # st.markdown('###### 材種名')
         st.caption(wood_name)
-    with col2:
+
+    with col3:
         #imagフォルダ内のファイル名リスト取得
         files = glob.glob("img//*.jpg")
         jpg_name = f'img/{selected_item}.jpg'
@@ -146,7 +148,7 @@ if not selected_item == '--品番を選択--':
     # *** selectbox fabrank***
     fabrank_list = df_selected2.columns[2:]
     fabrank = st.sidebar.selectbox(
-        'fabric rank:',
+        '張地ランク:',
         fabrank_list,   
     ) 
 
