@@ -147,7 +147,7 @@ if not selected_item == '--品番を選択--':
 
     price_dict['張替'] = fab_price
 
-    st.caption('修理項目:')
+    st.sidebar.caption('修理項目:')
     #籐張り修理
     if st.sidebar.checkbox('籐張り直し修理'):
         price_tou = 24000
@@ -158,7 +158,7 @@ if not selected_item == '--品番を選択--':
             st.write('注）修理後は少し硬く感じますがお使い頂く中で体になじんでいきます。')
 
     #籐巻きなおし修理
-    if st.sidebar.checkbox('籐まき直し（肘）修理　※アイガーなど'):
+    if st.sidebar.checkbox('籐巻き直し（肘）修理'):
         price_tou2 = 6000
         price_dict['籐巻き直し'] = price_tou2
 
