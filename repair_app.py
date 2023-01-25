@@ -18,32 +18,6 @@ df_base['E'] = df_base['E'].astype(int)
 df_base['本革A'] = df_base['本革A'].astype(int)
 df_base['本革B'] = df_base['本革B'].astype(int)
 
-# #itemファイルの読み込みconcat
-# df_item1 = pd.read_excel('repair_item1.xlsx')
-# df_item2 = pd.read_excel('repair_item2.xlsx')
-# df_chair_item = pd.concat([df_item1, df_item2], join='inner')
-
-# #priceファイルの読み込み
-# df_chair_price = pd.read_excel('repair_price2.xlsx')
-
-# #df_chair_price タイプstr
-# df_chair_item['タイプ'] = df_chair_item['タイプ'].astype(str)
-# df_chair_price['タイプ'] = df_chair_price['タイプ'].astype(str)
-
-# #itemとpriceのmerge
-# df_chair_m = df_chair_item.merge(df_chair_price, left_on='タイプ', right_on='タイプ', how='outer')
-# df_chair_m.dropna(subset=['品番'], inplace=True)
-
-
-# #タイプ外のconcat
-# df_chair_price_nontype = pd.read_excel('repair_price2_nontype.xlsx')
-# df_chair_m2 = pd.concat([df_chair_m, df_chair_price_nontype])
-
-# df_chair_m2.to_excel('chair_all.xlsx')
-
-
-
-
 #itemリストの作成
 item_list = df_base['品番'].unique()
 item_list2 = sorted(item_list)
@@ -53,7 +27,7 @@ item_list2.insert(0, '--品番を選択--')
 
 # *** selectbox item***
 selected_item = st.sidebar.selectbox(
-    '品番',
+    '品番:',
     item_list2,   
 )    
 
@@ -173,7 +147,7 @@ if not selected_item == '--品番を選択--':
 
     price_dict['張替'] = fab_price
 
-
+    st.caption('修理項目:')
     #籐張り修理
     if st.sidebar.checkbox('籐張り直し修理'):
         price_tou = 24000
