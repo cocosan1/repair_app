@@ -147,20 +147,7 @@ if not selected_item == '--品番を選択--':
 
     price_dict['張替'] = fab_price
 
-    st.sidebar.caption('修理項目:')
-    #籐張り修理
-    if st.sidebar.checkbox('籐張り直し修理'):
-        price_tou = 24000
-        price_dict['籐張替'] = price_tou
-        with st.expander('■ 籐張替修理注意点'):
-            st.write('現在の籐を全て剥がし、新たな籐へ張替えをさせて頂きます。')
-            st.write('注）塗装は致しますが天然の籐となりますのでお持ちのものと色が変わります。')
-            st.write('注）修理後は少し硬く感じますがお使い頂く中で体になじんでいきます。')
-
-    #籐巻きなおし修理
-    if st.sidebar.checkbox('籐巻き直し（肘）修理'):
-        price_tou2 = 6000
-        price_dict['籐巻き直し'] = price_tou2
+    st.sidebar.write('修理項目:')
 
     #組み直し修理
     if st.sidebar.checkbox('組み直し修理'):
@@ -179,18 +166,19 @@ if not selected_item == '--品番を選択--':
         with st.expander('■ 座割れ修理注意点'):
             st.write('注）座面の裏に桟を取り付ける為、事前にお伝えください。')
 
-    #回転盤交換修理
-    if st.sidebar.checkbox('ウインザー回転盤交換修理'):
-        price_kaiten = 19000
-        price_dict['回転盤交換'] = price_kaiten
-        with st.expander('■ 回転盤交換修理注意点'):
-            st.write('当時の回転盤が無いことがあるので要工場確認。（代替品対応）')
-            st.write('注）回転盤の仕様が異なる場合、木部部分の削り加工が必要な場合がございます。その際はお預かり修理となります。')
+    #籐張り修理
+    if st.sidebar.checkbox('籐張り直し修理'):
+        price_tou = 24000
+        price_dict['籐張替'] = price_tou
+        with st.expander('■ 籐張替修理注意点'):
+            st.write('現在の籐を全て剥がし、新たな籐へ張替えをさせて頂きます。')
+            st.write('注）塗装は致しますが天然の籐となりますのでお持ちのものと色が変わります。')
+            st.write('注）修理後は少し硬く感じますがお使い頂く中で体になじんでいきます。')
 
-    #キャスター修理
-    if st.sidebar.checkbox('キャスター修理'):
-        price_caster = 19000
-        price_dict['キャスター修理'] = price_caster
+    #籐巻きなおし修理
+    if st.sidebar.checkbox('籐巻き直し（肘）修理'):
+        price_tou2 = 6000
+        price_dict['籐巻き直し'] = price_tou2
 
     #Dチェア塗装
     if st.sidebar.checkbox('Dチェア再塗装'):
@@ -217,8 +205,20 @@ if not selected_item == '--品番を選択--':
             st.write('注）表面の生活傷は落ちますが、深い傷は落ちません。')
             st.write('注）研磨しますので木目が変わります。')
             st.write('注）同色での再塗装のみお受けさせて頂きます。（別色への変更不可）')
-            st.write('注）同色での再塗装のみお受けさせて頂きます。（別色への変更不可）')       
+            st.write('注）同色での再塗装のみお受けさせて頂きます。（別色への変更不可）')     
 
+    #回転盤交換修理
+    if st.sidebar.checkbox('ウインザー回転盤交換修理'):
+        price_kaiten = 19000
+        price_dict['回転盤交換'] = price_kaiten
+        with st.expander('■ 回転盤交換修理注意点'):
+            st.write('当時の回転盤が無いことがあるので要工場確認。（代替品対応）')
+            st.write('注）回転盤の仕様が異なる場合、木部部分の削り加工が必要な場合がございます。その際はお預かり修理となります。')
+
+    #キャスター修理
+    if st.sidebar.checkbox('キャスター修理'):
+        price_caster = 19000
+        price_dict['キャスター修理'] = price_caster
 
     df_price = pd.DataFrame(price_dict, index=['料金']).T
     df_price['料金'] = df_price['料金'].map(lambda x: str(x).replace(',', ''))
