@@ -133,8 +133,7 @@ if not selected_item == '--品番を選択--':
     with col2:
         #imagフォルダ内のファイル名リスト取得
         files = glob.glob("img//*.jpg")
-        st.write(files)
-        jpg_name = f'img\{selected_item}.jpg'
+        jpg_name = f'img/{selected_item}.jpg'
         if jpg_name in files:
             st.image(f'img//{selected_item}.jpg', width=40) 
 
