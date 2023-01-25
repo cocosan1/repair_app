@@ -177,7 +177,7 @@ if not selected_item == '--品番を選択--':
     if st.sidebar.checkbox('籐張り直し修理'):
         price_tou = 24000
         price_dict['籐張替'] = price_tou
-        with st.expander('籐張替修理注意点'):
+        with st.expander('！籐張替修理注意点'):
             st.write('現在の籐を全て剥がし、新たな籐へ張替えをさせて頂きます。')
             st.write('注）塗装は致しますが天然の籐となりますのでお持ちのものと色が変わります。')
             st.write('注）修理後は少し硬く感じますがお使い頂く中で体になじんでいきます。')
@@ -191,7 +191,7 @@ if not selected_item == '--品番を選択--':
     if st.sidebar.checkbox('組み直し修理'):
         price_kumi = 17000
         price_dict['組み直し'] = price_kumi
-        with st.expander('組み直し修理注意点'):
+        with st.expander('！組み直し修理注意点'):
             st.write('木部の接合部分の緩みによるグラツキ等は一度部材を分解、組み直し接着をします。')
             st.write('注）接着剤が古いものはアンモニア系。現在は酢酸ビニール系で以前より丈夫です。')
             st.write('部材に破損が見られる場合は部材の修繕や交換となります。（部材代は別途）')
@@ -201,14 +201,14 @@ if not selected_item == '--品番を選択--':
     if st.sidebar.checkbox('ウインザー座割れ修理'):
         price_zaware = 22000
         price_dict['座割れ修理'] = price_zaware
-        with st.expander('座割れ修理注意点'):
+        with st.expander('！座割れ修理注意点'):
             st.write('注）座面の裏に桟を取り付ける為、事前にお伝えください。')
 
     #回転盤交換修理
     if st.sidebar.checkbox('ウインザー回転盤交換修理'):
         price_kaiten = 19000
         price_dict['回転盤交換'] = price_kaiten
-        with st.expander('回転盤交換修理注意点'):
+        with st.expander('！回転盤交換修理注意点'):
             st.write('当時の回転盤が無いことがあるので要工場確認。（代替品対応）')
             st.write('注）回転盤の仕様が異なる場合、木部部分の削り加工が必要な場合がございます。その際はお預かり修理となります。')
 
@@ -221,7 +221,7 @@ if not selected_item == '--品番を選択--':
     if st.sidebar.checkbox('Dチェア再塗装'):
         price_dtosou = 25000
         price_dict['Dチェア塗装'] = price_dtosou
-        with st.expander('塗装修理注意点'):
+        with st.expander('！塗装修理注意点'):
             st.write('再塗装修理は現在の塗装膜を手作業で落とし、研磨後に新たな塗装をします。')
             st.write('注）色や艶を今使用している物、直した物そろえるのは難しいと事前にお伝えください。')
             st.write('注）19●●年以前のものは旧K色指定。今とは色が違います。')
@@ -235,7 +235,7 @@ if not selected_item == '--品番を選択--':
         st.caption('アームのみ塗装不可')
         price_atosou = 28000
         price_dict['アームチェア塗装'] = price_atosou
-        with st.expander('塗装修理注意点'):
+        with st.expander('！塗装修理注意点'):
             st.write('再塗装修理は現在の塗装膜を手作業で落とし、研磨後に新たな塗装をします。')
             st.write('注）色や艶を今使用している物、直した物そろえるのは難しいと事前にお伝えください。')
             st.write('注）19●●年以前のものは旧K色指定。今とは色が違います。')
