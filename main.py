@@ -44,12 +44,12 @@ if selected_item == '--品番を選択--':
     with col1:
         st.markdown('###### 張り込みチェア修理見積')
         img0 = Image.open('img/張り修理.jpg')
-        st.image(img0, width=300)
+        st.image(img0, width=200)
         st.write('サイドバーで品番を選択')
 
         st.markdown('###### 廃番品画像一覧')
         img1 = Image.open('img/昔カタログ.png')
-        st.image(img1, width=300)
+        st.image(img1, width=200)
         link = '[廃番品画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
         st.markdown(link, unsafe_allow_html=True)
         st.write('ここをクリック')
@@ -57,7 +57,7 @@ if selected_item == '--品番を選択--':
     with col2:
         st.markdown('###### ウインザーチェア（板座）修理見積')
         img1 = Image.open('img/板座修理.jpg')
-        st.image(img1, width=300)
+        st.image(img1, width=200)
         st.write('サイドバー【windsor】をクリック')
 
 
