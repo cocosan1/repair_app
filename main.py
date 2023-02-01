@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import webbrowser
 import glob
+from PIL import Image
 
 #st
 st.set_page_config(page_title='修理見積もり')
@@ -29,7 +30,7 @@ item_list2.insert(0, '--品番を選択--')
 
 
 # *** selectbox item***
-st.sidebar.markdown('#### 品番を選択')
+st.sidebar.markdown('#### 張り込みチェア見積')
 selected_item = st.sidebar.selectbox(
     '品番:',
     item_list2,   
@@ -38,19 +39,26 @@ selected_item = st.sidebar.selectbox(
 
 if selected_item == '--品番を選択--':
 
-    st.info('１. 張り込みチェア修理見積  ■ サイドバーで品番を選択')
+    col1, col2 = st.columns(2)
 
-    st.info('２. ウインザーチェア（板座）修理見積　■ サイドバー【windsor】をクリック')
-    st.info('３. 画像から品番を特定する')
+    with col1:
+        st.markdown('###### 張り込みチェア修理見積')
+        img0 = Image.open('img\張り修理.jpg')
+        st.image(img0, width=300)
+        st.write('サイドバーで品番を選択')
 
-    link = '[廃番品画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
-    st.markdown(link, unsafe_allow_html=True)
-    st.caption('ここをクリック') 
+        st.markdown('###### 廃番品画像一覧')
+        img1 = Image.open('img\昔カタログ.png')
+        st.image(img1, width=300)
+        link = '[廃番品画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
+        st.markdown(link, unsafe_allow_html=True)
+        st.write('ここをクリック')
 
-    # url = 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/'
-
-    # if st.button('画像ページへ'):
-    #     webbrowser.open_new(url)
+    with col2:
+        st.markdown('###### ウインザーチェア（板座）修理見積')
+        img1 = Image.open('img\板座修理.jpg')
+        st.image(img1, width=300)
+        st.write('サイドバー【windsor】をクリック')
 
 
 if not selected_item == '--品番を選択--':
