@@ -43,10 +43,14 @@ if selected_item == '--品番を選択--':
     st.info('２. ウインザーチェア（板座）修理見積　■ サイドバー【windsor】をクリック')
     st.info('３. 画像から品番を特定する')
 
-    url = 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/'
+    link = '[廃番品画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
+    st.markdown(link, unsafe_allow_html=True)
+    st.caption('ここをクリック') 
 
-    if st.button('画像ページへ'):
-        webbrowser.open_new(url)
+    # url = 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/'
+
+    # if st.button('画像ページへ'):
+    #     webbrowser.open_new(url)
 
 
 if not selected_item == '--品番を選択--':
