@@ -46,7 +46,7 @@ if selected_item == '--品番を選択--':
     url = 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/'
 
     if st.button('画像ページへ'):
-        webbrowser.open_new_tab(url, new=1, autoraise=True)
+        webbrowser.open_new(url)
 
 
 if not selected_item == '--品番を選択--':
