@@ -10,7 +10,7 @@ st.markdown('#### チェア修理見積もりアプリ')
 st.markdown('##### ウインザーチェア（板座）')
 
 img = Image.open('旧カタログ.png')
-st.image(img, width=500)
+st.image(img, width=200)
 
 
 df = pd.read_excel('修理価格一覧app用.xlsx')
