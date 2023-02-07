@@ -60,7 +60,7 @@ selected_item = st.sidebar.selectbox(
 
 
 if selected_item == '--品番を選択--':
-    img_menu = Image.open('img_sofa\F1001.jpg')
+    img_menu = Image.open('img_sofa/F1001.jpg')
     st.image(img_menu)
     st.write('品番を選択してください')
 
