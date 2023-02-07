@@ -42,7 +42,7 @@ if selected_item == '--品番を選択--':
     col1, col2 = st.columns(2)
 
     with col1:
-        img_megane = Image.open('img\虫眼鏡のアイコン.jpg')
+        img_megane = Image.open('img/虫眼鏡のアイコン.jpg')
         st.image(img_megane, width=50)
         st.markdown('###### 探す')
 
@@ -53,7 +53,7 @@ if selected_item == '--品番を選択--':
         st.markdown(link, unsafe_allow_html=True)
 
     with col2:
-        img_calc = Image.open('img\電卓アイコン.jpg')
+        img_calc = Image.open('img/電卓アイコン.jpg')
         st.image(img_calc, width=50)
         st.markdown('###### 見積もる')
         
