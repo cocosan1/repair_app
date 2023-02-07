@@ -6,7 +6,7 @@ from PIL import Image
 
 #st
 st.set_page_config(page_title='修理見積もり')
-st.markdown('#### チェア修理見積もりアプリ')
+st.markdown('#### 修理見積もりアプリ')
 st.markdown('##### メニュー')
 
 df_chair_all = pd.read_excel('chair_all.xlsx')
@@ -42,23 +42,29 @@ if selected_item == '--品番を選択--':
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown('###### 張り込みチェア修理見積')
-        img0 = Image.open('img/張り修理.jpg')
-        st.image(img0, width=150)
-        st.write('サイドバーで品番を選択')
+        img_megane = Image.open('img\虫眼鏡のアイコン.jpg')
+        st.image(img_megane, width=50)
+        st.markdown('###### 探す')
 
-        st.markdown('###### 廃番品画像一覧')
-        img1 = Image.open('img/昔カタログ.png')
-        st.image(img1, width=150)
-        link = '[廃番品画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
+        link = '[廃番品チェア画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
         st.markdown(link, unsafe_allow_html=True)
-        st.write('ここをクリック')
+
+        link = '[廃番品ソファ画像一覧](http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/)'
+        st.markdown(link, unsafe_allow_html=True)
 
     with col2:
-        st.markdown('###### ウインザーチェア（板座）修理見積')
-        img1 = Image.open('img/板座修理.jpg')
-        st.image(img1, width=150)
-        st.write('サイドバー【windsor】をクリック')
+        img_calc = Image.open('img\電卓アイコン.jpg')
+        st.image(img_calc, width=50)
+        st.markdown('###### 見積もる')
+        
+        st.write('◆ チェア（張り込み）')
+        st.caption('サイドバーで品番を選択')
+
+        st.write('◆ ウインザーチェア（板座）')
+        st.caption('サイドバー【windsor】をクリック')
+
+        st.write('◆ ソファ')
+        st.caption('サイドバー【sofa】をクリック')
 
 
 if not selected_item == '--品番を選択--':
