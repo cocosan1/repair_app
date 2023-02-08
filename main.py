@@ -66,6 +66,9 @@ if selected_item == '--品番を選択--':
         st.write('◆ ソファ')
         st.caption('サイドバー【sofa】をクリック')
 
+        st.write('◆ 穂高')
+        st.caption('サイドバー【hodaka】をクリック')
+
 
 if not selected_item == '--品番を選択--':
 
