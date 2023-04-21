@@ -3,6 +3,7 @@ import streamlit as st
 import webbrowser
 import glob
 from PIL import Image
+from io import BytesIO
 
 #st
 st.set_page_config(page_title='修理見積もり')
@@ -96,6 +97,24 @@ if submitted:
     df_results.at['合計', '数量'] = 0
     df_results.at['合計', '数量'] = df_results['数量'].sum()
     st.table(df_results)
+
+    #見積もりのエクセル出力
+    def to_excel(df):
+
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        df.to_excel(writer, index = True, sheet_name='Sheet1')
+        workbook  = writer.book
+        worksheet = writer.sheets['Sheet1']
+        format1 = workbook.add_format({'num_format': '0.00'}) # Tried with '0%' and '#,##0.00' also.
+        worksheet.set_column('A:A', None, format1) # Say Data are in column A
+        writer.save()
+        processed_data = output.getvalue()
+        return processed_data
+
+    # to_excel(df_output)
+    df_xlsx = to_excel(df_results)
+    st.download_button(label='ダウンロード excel', data=df_xlsx, file_name= '修理見積.xlsx') 
 
     results_list = df_results.index
 
