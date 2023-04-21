@@ -52,6 +52,10 @@ if selected_item == '--品番を選択--':
         link = '[廃番品ソファ画像一覧](http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/)'
         st.markdown(link, unsafe_allow_html=True)
 
+        link = '[home](https://cocosan1-hidastreamlit3-linkpage-j6o5p1.streamlit.app/)'
+        st.markdown(link, unsafe_allow_html=True)
+        st.caption('homeに戻る')
+
     with col2:
         img_calc = Image.open('img/電卓アイコン.jpg')
         st.image(img_calc, width=50)

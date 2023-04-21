@@ -77,8 +77,7 @@ if selected_item == '--品番を選択--':
     with colc:
         img_renketu = Image.open('img/S_連結マジックバンド.jpg')
         st.image(img_renketu, width=150)
-        st.caption('連結マジックバンド')    
-
+        st.caption('連結マジックバンド')        
 
 
 if not selected_item == '--品番を選択--':
