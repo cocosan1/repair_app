@@ -54,7 +54,7 @@ if selected_item == '--品番を選択--':
         st.markdown(link, unsafe_allow_html=True)
 
 
-        link = '[home](https://cocosan1-hidastreamlit3-linkpage-j6o5p1.streamlit.app/)'
+        link = '[home](https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/)'
         st.markdown(link, unsafe_allow_html=True)
         st.caption('homeに戻る')
 
