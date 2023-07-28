@@ -100,17 +100,26 @@ if submitted:
 
     #見積もりのエクセル出力
     def to_excel(df):
+            #メモリー上でバイナリデータを処理       
+            output = BytesIO()
+            #df化
+            df.to_excel(output, index = True, sheet_name='Sheet1')
+            #メモリ上から値の取得
+            processed_data = output.getvalue()
 
-        output = BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        df.to_excel(writer, index = True, sheet_name='Sheet1')
-        workbook  = writer.book
-        worksheet = writer.sheets['Sheet1']
-        format1 = workbook.add_format({'num_format': '0.00'}) # Tried with '0%' and '#,##0.00' also.
-        worksheet.set_column('A:A', None, format1) # Say Data are in column A
-        writer.save().close()
-        processed_data = output.getvalue()
-        return processed_data
+            return processed_data
+    # def to_excel(df):
+
+    #     output = BytesIO()
+    #     writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    #     df.to_excel(writer, index = True, sheet_name='Sheet1')
+    #     workbook  = writer.book
+    #     worksheet = writer.sheets['Sheet1']
+    #     format1 = workbook.add_format({'num_format': '0.00'}) # Tried with '0%' and '#,##0.00' also.
+    #     worksheet.set_column('A:A', None, format1) # Say Data are in column A
+    #     writer.save()
+    #     processed_data = output.getvalue()
+    #     return processed_data
 
     # to_excel(df_output)
     df_xlsx = to_excel(df_results)
