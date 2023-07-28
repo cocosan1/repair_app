@@ -112,7 +112,7 @@ if not selected_item == '--品番を選択--':
 
         st.write('サイドバーの選択フォームから選択してください')  
 
-
+    df_selected2_rank = pd.DataFrame()
     # 布ランクからdfの抽出
     if fabrank == 'A-S':
         df_selected2_rank = df_selected2.iloc[:, [0, 1, 2]]
@@ -155,6 +155,7 @@ if not selected_item == '--品番を選択--':
         
         cont1 = st.number_input('数量入力', min_value=0, max_value=10, key='cont1')
 
+        st.write(df_selected2_rank)
         if parts1 != '':
             #部品名/単価/数量をリストに追加
             df_p1 = df_selected2_rank[df_selected2_rank['部品']==parts1]
