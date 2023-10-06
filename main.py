@@ -4,6 +4,7 @@ import webbrowser
 import glob
 from PIL import Image
 from io import BytesIO
+import openpyxl
 
 #st
 st.set_page_config(page_title='修理見積もり')
@@ -47,16 +48,20 @@ if selected_item == '--品番を選択--':
         st.image(img_megane, width=50)
         st.markdown('###### 探す')
 
-        link = '[廃番品チェア画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
-        st.markdown(link, unsafe_allow_html=True)
+        st.link_button('廃番品チェア画像一覧', 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/')
+        st.link_button('廃番品ソファ画像一覧', 'http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/')
+        st.link_button('homeに戻る', 'https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/')
 
-        link = '[廃番品ソファ画像一覧](http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/)'
-        st.markdown(link, unsafe_allow_html=True)
+        # link = '[廃番品チェア画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
+        # st.markdown(link, unsafe_allow_html=True)
+
+        # link = '[廃番品ソファ画像一覧](http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/)'
+        # st.markdown(link, unsafe_allow_html=True)
 
 
-        link = '[home](https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/)'
-        st.markdown(link, unsafe_allow_html=True)
-        st.caption('homeに戻る')
+        # link = '[home](https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/)'
+        # st.markdown(link, unsafe_allow_html=True)
+        # st.caption('homeに戻る')
 
     with col2:
         img_calc = Image.open('img/電卓アイコン.jpg')
