@@ -6,6 +6,8 @@ from PIL import Image
 from io import BytesIO
 import openpyxl
 
+# pip install streamlit pandas Pillow openpyxl
+
 #st
 st.set_page_config(page_title='修理見積もり')
 st.markdown('#### 修理見積もりアプリ')
