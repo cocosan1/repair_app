@@ -16,6 +16,7 @@ st.markdown('##### メニュー')
 df_chair_all = pd.read_excel('chair_all.xlsx')
 df_base = df_chair_all.copy()
 
+# データの型調整
 df_base['品番'] =df_base['品番'].astype(str)
 df_base['タイプ'] =df_base['タイプ'].astype(str)
 
@@ -53,17 +54,6 @@ if selected_item == '--品番を選択--':
         st.link_button('廃番品チェア画像一覧', 'http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/')
         st.link_button('廃番品ソファ画像一覧', 'http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/')
         st.link_button('homeに戻る', 'https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/')
-
-        # link = '[廃番品チェア画像一覧](http://repair-app-magnific.s3-website-ap-northeast-1.amazonaws.com/)'
-        # st.markdown(link, unsafe_allow_html=True)
-
-        # link = '[廃番品ソファ画像一覧](http://repair-app-magnific-sofa.s3-website-ap-northeast-1.amazonaws.com/)'
-        # st.markdown(link, unsafe_allow_html=True)
-
-
-        # link = '[home](https://cocosan1-hidastreamlit4-linkpage-7tmz81.streamlit.app/)'
-        # st.markdown(link, unsafe_allow_html=True)
-        # st.caption('homeに戻る')
 
     with col2:
         img_calc = Image.open('img/電卓アイコン.jpg')
@@ -262,21 +252,6 @@ if not selected_item == '--品番を選択--':
 
             return processed_data
 
-        # #見積もりのエクセル出力
-        # def to_excel(df):
-
-        #     output = BytesIO()
-        #     writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        #     df.to_excel(writer, index = True, sheet_name='Sheet1')
-        #     workbook  = writer.book
-        #     worksheet = writer.sheets['Sheet1']
-        #     format1 = workbook.add_format({'num_format': '0.00'}) # Tried with '0%' and '#,##0.00' also.
-        #     worksheet.set_column('A:A', None, format1) # Say Data are in column A
-        #     writer.save()
-        #     processed_data = output.getvalue()
-        #     return processed_data
-
-        # to_excel(df_output)
         df_xlsx = to_excel(df_results2)
         st.download_button(label='ダウンロード excel', data=df_xlsx, file_name= '修理見積.xlsx')    
 
