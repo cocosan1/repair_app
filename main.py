@@ -91,10 +91,10 @@ if not selected_item == '--品番を選択--':
 
     with col3:
         #imagフォルダ内のファイル名リスト取得
-        files = glob.glob("img\*.jpg")
-        jpg_name = f'img\{selected_item}.jpg'
+        files = glob.glob("img_chair\*.jpg")
+        jpg_name = f'img_chair\{selected_item}.jpg'
         if jpg_name in files:
-            st.image(f'img\{selected_item}.jpg', width=60) 
+            st.image(f'img_chair\{selected_item}.jpg', width=60) 
 
     #品番でdfの絞り込み
     df_selected = df_base[df_base['品番']==selected_item]
