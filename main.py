@@ -11,6 +11,7 @@ import openpyxl
 #st
 st.set_page_config(page_title='修理見積もり')
 st.markdown('#### 修理見積もりアプリ')
+st.markdown('###### ■2024/12/21 価格表仕様 -2024/12/22更新-')
 st.markdown('##### メニュー')
 
 df_chair_all = pd.read_excel('chair_all.xlsx')
@@ -23,8 +24,8 @@ df_base['タイプ'] =df_base['タイプ'].astype(str)
 df_base['A-S・A・B'] = df_base['A-S・A・B'].astype(int)
 df_base['C'] = df_base['C'].astype(int)
 df_base['E'] = df_base['E'].astype(int)
-df_base['本革A'] = df_base['本革A'].astype(int)
 df_base['本革B'] = df_base['本革B'].astype(int)
+df_base['本革D'] = df_base['本革D'].astype(int)
 
 #itemリストの作成
 item_list = df_base['品番'].unique()
@@ -100,7 +101,7 @@ if not selected_item == '--品番を選択--':
     df_selected = df_base[df_base['品番']==selected_item]
 
     #布ランクリストの作成
-    df_selected2 = df_selected[['品番', '部品', 'A-S・A・B', 'C', 'E', '本革A', '本革B']]
+    df_selected2 = df_selected[['品番', '部品', 'A-S・A・B', 'C', 'E', '本革B', '本革D']]
 
     #クッション価格一覧表示
     st.markdown('###### 張替え料金一覧')

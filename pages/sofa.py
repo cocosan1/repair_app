@@ -11,37 +11,29 @@ st.markdown('#### ソファ修理見積もりアプリ')
 df_sofa = pd.read_excel('sofa.xlsx')
 df_base = df_sofa.copy()
 
-df_base['A-S'] = df_base['A-S'].astype(str)
-df_base['A'] = df_base['A'].astype(str)
-df_base['B'] = df_base['B'].astype(str)
+df_base['A-S/A/B'] = df_base['A-S/A/B'].astype(str)
 df_base['C'] = df_base['C'].astype(str)
 df_base['E'] = df_base['E'].astype(str)
-df_base['本革A'] = df_base['本革A'].astype(str)
 df_base['本革B'] = df_base['本革B'].astype(str)
+df_base['本革D'] = df_base['本革D'].astype(str)
 
-df_base['A-S'] = df_base['A-S'].map(lambda x: x.replace(',', ''))
-df_base['A'] = df_base['A'].map(lambda x: x.replace(',', ''))
-df_base['B'] = df_base['B'].map(lambda x: x.replace(',', ''))
+df_base['A-S/A/B'] = df_base['A-S/A/B'].map(lambda x: x.replace(',', ''))
 df_base['C'] = df_base['C'].map(lambda x: x.replace(',', ''))
 df_base['E'] = df_base['E'].map(lambda x: x.replace(',', ''))
-df_base['本革A'] = df_base['本革A'].map(lambda x: x.replace(',', ''))
 df_base['本革B'] = df_base['本革B'].map(lambda x: x.replace(',', ''))
+df_base['本革D'] = df_base['本革D'].map(lambda x: x.replace(',', ''))
 
-df_base['A-S'] = df_base['A-S'].astype(int)
-df_base['A'] = df_base['A'].astype(int)
-df_base['B'] = df_base['B'].astype(int)
+df_base['A-S/A/B'] = df_base['A-S/A/B'].astype(int)
 df_base['C'] = df_base['C'].astype(int)
 df_base['E'] = df_base['E'].astype(int)
-df_base['本革A'] = df_base['本革A'].astype(int)
 df_base['本革B'] = df_base['本革B'].astype(int)
+df_base['本革D'] = df_base['本革D'].astype(int)
 
-df_base['A-S'] = df_base['A-S'].map(lambda x: '{:,}'.format(x))
-df_base['A'] = df_base['A'].map(lambda x: '{:,}'.format(x))
-df_base['B'] = df_base['B'].map(lambda x: '{:,}'.format(x))
+df_base['A-S/A/B'] = df_base['A-S/A/B'].map(lambda x: '{:,}'.format(x))
 df_base['C'] = df_base['C'].map(lambda x: '{:,}'.format(x))
 df_base['E'] = df_base['E'].map(lambda x: '{:,}'.format(x))
-df_base['本革A'] = df_base['本革A'].map(lambda x: '{:,}'.format(x))
 df_base['本革B'] = df_base['本革B'].map(lambda x: '{:,}'.format(x))
+df_base['本革D'] = df_base['本革D'].map(lambda x: '{:,}'.format(x))
 
 #itemリストの作成
 item_list = df_base['品番'].unique()
@@ -77,7 +69,7 @@ if not selected_item == '--品番を選択--':
 
     with col2:    
         #材種の表示
-        wood_name = df_selected.iat[0, 10]
+        wood_name = df_selected.iat[0, 8]
         # st.markdown('###### 材種名')
         st.caption(wood_name)
 
@@ -92,7 +84,7 @@ if not selected_item == '--品番を選択--':
     df_selected = df_base[df_base['品番']==selected_item]
 
     #布ランクリストの作成
-    df_selected2 = df_selected[['品番', '部品', 'A-S', 'A', 'B', 'C', 'E', '本革A', '本革B']]
+    df_selected2 = df_selected[['品番', '部品', 'A-S/A/B', 'C', 'E', '本革B', '本革D']]
 
     #クッション価格一覧表示
     st.markdown('###### 張替え料金一覧')
